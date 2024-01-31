@@ -1,0 +1,62 @@
+
+Create a stocks data component as shown.
+
+
+
+Hide animation
+
+
+
+The component must have the following functionalities.
+
+The input should initially be empty. The user can type a date in this input box, for which the stock data must be searched. The date format must be d-mmmm-yyyy (e.g., 5-January-2000).
+
+Clicking on the 'Search' button should make an API GET call to URL 'https://jsonmock.hackerrank.com/api/stocks?date={input}' using the JavaScript fetch API, specifically the fetch function. Here, {input} is the date entered into the text box. For example, for date 5-January-2000, the API hit is https://jsonmock.hackerrank.com/api/stocks?date=5-January-2000. The date passed to the URL must not have any leading zeroes in the day.
+
+The response will contain a data field that contains stock data.
+
+"data": [
+    {
+      "date": "5-January-2000",
+      "open": 5265.09,
+      "high": 5464.35,
+      "low": 5184.48,
+      "close": 5357
+    }
+  ]
+
+
+
+The data field is an array that contains a single object. Retrieve the open, close, high, and low values from this, and render it in the format explained.
+
+Display the data inside <ul data-testid="stock-data"></ul>. This list will have these list elements in this order.
+
+<li>Open: {open}</li> , where {open} is the open value from data above
+
+<li>Close: {close}</li> , where {close} is the close value
+
+<li>High: {high}</li> , where {high} is the high value
+
+<li>Low: {low}</li> , where {low} is the low value
+
+The element <ul data-testid="stock-data"></ul> is rendered only when data is fetched and the result is shown. Initially, it is not rendered since no API has been hit yet.
+
+If the API returns no stock data, the app should render <div data-testid="no-result">No Results Found</div> instead of the <ul> element. This element should be visible only when the data field is an empty array. This div should not be rendered initially because no API has been hit yet.
+
+Note that the input field accepts the date as text. Input will be tested only with valid dates, so writing input validation is not required.
+
+
+
+The following data-testid attributes are required in the component for the tests to pass:
+
+Input should have the data-testid attribute 'app-input'.
+
+Search button should have the data-testid attribute 'submit-button'.
+
+<ul> should have the data-testid attribute 'stock-data'.
+
+The 'No Results Found' div should have the data-testid attribute 'no-result'.
+
+
+
+Note that components have data-testid attributes for test cases and certain classes and ids for rendering purposes. These should not be changed.
